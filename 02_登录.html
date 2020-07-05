@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style >
+		.layout{
+			display: none;
+			position: absolute;
+			top: 0;
+			width: 100%;
+			height: 100%;
+			background-color: rgba(0,0,0,0.2);
+		}
+		.layout .loginModel{
+			width:360px;
+			padding-bottom: 30px;
+			margin: 200px auto 0;
+			background-color: #fff;
+		}
+		.close{
+			float: right;
+			margin-right: 18px;
+			margin-top: 12px;
+			width: 16px;
+			height: 16px;
+			border: 1px solid #000;
+			background-image:url(image/pass_login_icons.png);
+			background-repeat: no-repeat;
+			background-position: -55px -48px;
+			cursor: pointer;     //小手现状
+		}
+		.close:hover{
+			background-position: -71px -48px;
+		}
+		.loginTitle{
+			margin-left: 117px;
+			display: inline-block;
+			margin-top: 10px;
+		}
+		.loginModel input{
+			width: 300px;
+			height: 40px;
+			display: block;
+			margin: 18px auto 0;
+
+		}
+		#loginbtn{
+			border: none;
+			width: 300px;
+			height: 40px;
+			display: block;
+			margin: 18px auto 0;
+			background-color: #3F89EC;
+			color: #fff;
+			font-size: 16px bold;
+		}
+	</style>
+</head>
+<body>
+	<a href="javascript:;" id="btn">登录</a>
+	<div class="layout">
+		<div class="loginModel">
+			<p><span class="loginTitle">用户名通行证登录</span><span class="close"></span></p>
+			<input type="text" id="username" placeholder="访客名：输入游客">
+			<input type="password" id="userpwd" placeholder="通行码：8848">
+			<button id="loginbtn">进入</button>
+		</div>
+	</div>
+</body>
+<script >
+	var btn = document.getElementById('btn')
+	var layout = document.getElementsByClassName('layout')[0]
+	btn.onclick = function(){             
+		//绑定点击事件
+		layout.style.display = 'block'      
+		//改layoutdisplay的样式
+	}
+	var close = document.getElementsByClassName('close')[0]    //获取close
+	close.onclick = function(){
+		layout.style.display = 'none'
+	}
+	//获取用户输入的用户名和密码，验证是否正确
+	var username = document.getElementById('username')
+	var userpwd = document.getElementById('userpwd')
+	var loginbtn = document.getElementById('loginbtn')
+
+	//给loginbtnbangd点击事件
+	loginbtn.onclick = function(){
+		var username_val = username.value
+		var userpwd_val = userpwd.value
+		if (username_val == '游客') {
+			if (userpwd_val == '8848') {
+				alert('登录成功')
+			}else{
+			alert('密码错误')
+		}
+		}else{
+			alert('用户名不存在')
+		}
+	}
+</script>
+</html>
